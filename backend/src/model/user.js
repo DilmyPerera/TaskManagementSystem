@@ -50,3 +50,19 @@ const userSchema = new mongoose.Schema({
             timestamps : true,
         
 });
+
+//link task model
+
+userSchema.virtual("task",{
+    ref: "Task",
+    localField: "_id",
+    foreignField: "owner",
+});
+//authentication user model
+// userSchema.statics.findByCredentials = async(email, password)=>{
+//     const user = await User.findOne({ email});
+//     if(!user){
+//         throw new Error("Unable to login, please check your details.");
+//     }
+
+    
